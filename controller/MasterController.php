@@ -11,25 +11,31 @@ class MasterController{
 		}
 
 	public function start(){
-		if ($this->nv->areaLinkPressed()){
+		  if ($this->nv->areaLinkPressed()){
       		return new AreaView();
-    	}
-    	if ($this->nv->lengthLinkPressed()){
+      }
+      if ($this->nv->lengthLinkPressed()){
       		return new LengthView();
-    	}
-    	if ($this->nv->currencyLinkPressed()){
+      }
+      if ($this->nv->currencyLinkPressed()){
      		return new CurrencyView();
-    	}
-    	if ($this->nv->temperatureLinkPressed()){
+      }
+     if ($this->nv->temperatureLinkPressed()){
       		return new TemperatureView();
-    	}
-    	if ($this->nv->weightLinkPressed()){
+      }
+     if ($this->nv->weightLinkPressed()){
       		return new WeightView();
-    	}
-    	if ($this->nv->caseLinkPressed()){
+      }
+     if ($this->nv->speedLinkPressed()){
+          return new SpeedView();
+      }
+     if ($this->nv->caseLinkPressed()){
       		return new CaseView();
-    	}
-    	else return new HomeView();
+      }
+     if($this->nv->volumeLinkPressed()){
+          return new VolumeView();
+     }
+     else return new HomeView();
 	}
 	
 }

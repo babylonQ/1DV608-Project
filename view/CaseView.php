@@ -11,7 +11,7 @@ class CaseView{
 
 	public function response() {
 
-		return '<center>' . "<div style='width:700px;height:250px;padding:10px;border:10px solid yellowgreen;'>" . '
+		return '<center>' . "<div style='width:700px;height:100px;padding:10px;border:10px solid yellowgreen;'>" . '
 				<form method="post" > 
 					
 					<label for="' . self::$value . '">Enter text :</label><br />

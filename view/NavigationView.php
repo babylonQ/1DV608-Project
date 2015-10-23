@@ -9,6 +9,7 @@ class NavigationView {
 	private static $temperatureLink = "temperature";
 	private static $currencyLink = "currency";
 	private static $volumeLink = "volume";
+  private static $speedLink = "speed";
   private static $caseLink = "case";
 	private static $backLink = '';
 
@@ -22,33 +23,41 @@ class NavigationView {
  	 	}
  	 }
 
-	 public function areaLinkPressed() {	
+	public function areaLinkPressed() {	
     	return isset($_GET[self::$areaLink]);
   	}
 
-  	public function lengthLinkPressed() {	
+  public function lengthLinkPressed() {	
     	return isset($_GET[self::$lengthLink]);
   	}
 
-    public function currencyLinkPressed() { 
+  public function currencyLinkPressed() { 
       return isset($_GET[self::$currencyLink]);
     }
 
-    public function temperatureLinkPressed() { 
+  public function temperatureLinkPressed() { 
       return isset($_GET[self::$temperatureLink]);
     }
 
-    public function weightLinkPressed() { 
+  public function weightLinkPressed() { 
       return isset($_GET[self::$weightLink]);
     }
 
-     public function caseLinkPressed() { 
+  public function speedLinkPressed() { 
+      return isset($_GET[self::$speedLink]);
+    }
+
+  public function caseLinkPressed() { 
       return isset($_GET[self::$caseLink]);
     }
 
+  public function volumeLinkPressed() { 
+      return isset($_GET[self::$volumeLink]);
+    }
 
-    public function anyLinkPressed() {
-        if(isset($_GET[self::$lengthLink]) || isset($_GET[self::$areaLink])|| isset($_GET[self::$weightLink])|| isset($_GET[self::$temperatureLink])|| isset($_GET[self::$currencyLink])|| isset($_GET[self::$volumeLink])||isset($_GET[self::$caseLink])) 
+
+  public function anyLinkPressed() {
+      if(isset($_GET[self::$lengthLink]) || isset($_GET[self::$areaLink])|| isset($_GET[self::$weightLink])|| isset($_GET[self::$temperatureLink])|| isset($_GET[self::$currencyLink])|| isset($_GET[self::$volumeLink])||isset($_GET[self::$caseLink])||isset($_GET[self::$caseLink])||isset($_GET[self::$speedLink])) 
             return true;
           else
             return false;
@@ -56,14 +65,16 @@ class NavigationView {
     
 
 	 public function renderLinks() {
-      return "<center><div style='width:200px;height:250px;padding:10px;border:10px solid yellowgreen;'>
+      return "<center><div align= 'center' style='width:200px;height:280px;padding:10px;border:10px solid yellowgreen;'>
       		  <a href='?" . self::$areaLink . "'>Area</a><br /><br />
       		  <a href='?" . self::$lengthLink . "'>Length</a><br /><br />
       		  <a href='?" . self::$weightLink . "'>Weight</a><br /><br />
       		  <a href='?" . self::$temperatureLink . "'>Temperature</a><br /><br />
       		  <a href='?" . self::$currencyLink . "'>Currency</a><br /><br />
       		  <a href='?" . self::$volumeLink . "'>Volume</a><br /><br />
-            <a href='?" . self::$caseLink . "'>Case Converter</a></div></center><br /><br />";
+            <a href='?" . self::$speedLink . "'>Speed</a><br /><br />
+            <a href='?" . self::$caseLink . "'>Case Converter</a>
+            </div></center>";
  	 }
 
  	 public function renderBackLink() {

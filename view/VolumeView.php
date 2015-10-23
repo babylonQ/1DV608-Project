@@ -1,26 +1,25 @@
 <?php
 
-class AreaView {
+class VolumeView {
 
-	private static $convert = 'AreaView::Convert';
-	private static $value = 'AreaView::Value';
-	private static $result = '';
+	private static $convert = 'VolumeView::Convert';
+	private static $value = 'VolumeView::Value';
 	private $selectedFrom = '';
 	private $selectedTo = '';
+	private static $result = '';
 	private $unitModel;
-	
+
 	public function __construct(){
 
 		$this->unitModel = new UnitModel();
 	}
 
-	
+	//<p id="' . self::$messageId . '">' . $message . '</p>
+					
 	public function response() {
 
 		return '<center>' . "<div style='width:700px;height:50px;padding:10px;border:10px solid yellowgreen;'>" . '
-				
-				<form method="post" > 
-					<br />
+				<form method="post" > <br />
 					<label for="' . self::$value . '">From :</label>
 					<input type="text" id="' . self::$value . '" name="' . self::$value . '" value="' . $this->setValue() . '" style="width: 70px;"/>
 					'.$this->setFromConvertValue().'
@@ -35,23 +34,20 @@ class AreaView {
 					'.$this->getUnits($this->selectedTo).'
 					</select>
 					
-					<input type="submit" name="' . self::$convert . '" value="Convert" /><br />
-					
-			</form>
+					<input type="submit" name="' . self::$convert . '" value="Convert" />
+				
+			</form></div></center>
 
 		';
 	}
 
-	private function getUnits($select){
+	public function getUnits($select){
 		$options='';
-		foreach($this->unitModel->getAreaUnits() as $key => $value){
-
+		foreach($this->unitModel->getVolumeUnits() as $key => $value){
 			if($select == $key){
-
 				$options .= '<option value="'.$key.'" selected>'.$key.'</option>';
 			}
 			else{
-
 				$options .= '<option value="'.$key.'">'.$key.'</option>';
 			}		
 		}
@@ -60,7 +56,7 @@ class AreaView {
 
 	private function getResult(){
 
-		self::$result = $this->unitModel->result($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getAreaUnits());
+		self::$result = $this->unitModel->result($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getVolumeUnits());
 		return self::$result;
 	}
 
@@ -69,34 +65,29 @@ class AreaView {
 	}
 
 	public function setValue(){
-		if (isset($_POST[self::$value])) {
+		if (isset($_POST[self::$value]))
       	return ($_POST[self::$value]);
-   		 }
 	}
 
 	private function setFromConvertValue(){
-		if(isset($_POST['units'])){
+
+		if(isset($_POST['units']))
 			$this->selectedFrom = $_POST['units'];
-		}
 	}
 
 	private function getFromConvertValue(){
-		if(isset($_POST['units'])){
+		if(isset($_POST['units']))
 			return $_POST['units'];
-		}
 	}
 
 	private function setToConvertValue(){
-		if(isset($_POST['toconvertto'])){
-			$this->selectedTo = $_POST['toconvertto'];
-		}
-			
+		if(isset($_POST['toconvertto']))
+			$this->selectedTo = $_POST['toconvertto'];	
 	}
 
 	private function getToConvertValue(){
-		if(isset($_POST['toconvertto'])){
+		if(isset($_POST['toconvertto']))
 			return $_POST['toconvertto'];
-		}
 	}
 
 }
