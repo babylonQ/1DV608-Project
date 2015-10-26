@@ -8,40 +8,28 @@ class TemperatureView {
 	private $selectedFrom = '';
 	private $selectedTo = '';
 	private $unitModel;
+	private static $messageId = 'TemperatureView::Message';
+	private static $message = '';
 	
 	public function __construct(){
 
-		$this->unitModel = new UnitModel();
+		$this->unitModel = new TemperatureModel();
 	}
 
-	public function response() {
+	public function header() {
 
-		return '<center>' . "<div style='width:700px;height:50px;padding:10px;border:10px solid yellowgreen;'>" . '
-				<form method="post" > <br />
-					
-					<label for="' . self::$value . '">From :</label>
-					<input type="text" id="' . self::$value . '" name="' . self::$value . '" value="' . $this->setValue() . '" style="width: 70px;"/>
-					'.$this->setFromConvertValue().'
-					<select name = "units">
-					'.$this->getUnits($this->selectedFrom).'
-					</select>
-					<label for="' . self::$result . '">To :</label>
-					<input type="text" id="' . self::$result . '" name="' . self::$result . '" value="' . $this->getResult() . '" style="width: 70px;"/>
-					
-					<select name = "toconvertto">
-					'.$this->getUnits($this->selectedTo).'
-					</select>
-					
-					<input type="submit" name="' . self::$convert . '" value="Convert" /> <br />
-				
-			</form></div></center>
-
-		';
+		return 'Temperature Converter';
 	}
 
-	private function getUnits($select){
+	public function getInfo(){
+		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
+      	Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
+      	<hr></div></center>';
+	}
+
+	public function getUnits($select){
 		$options='';
-		foreach($this->unitModel->getTemperatureUnits() as $key => $value){
+		foreach($this->unitModel->getUnits() as $key => $value){
 
 			if($select == $key){
 
@@ -55,9 +43,12 @@ class TemperatureView {
 		return $options;
 	}
 
-	private function getResult(){
-
-		self::$result = $this->unitModel->result($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getTemperatureUnits());
+	public function getResult(){
+		try{
+			self::$result = $this->unitModel->result($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getUnits());
+		}catch(InvalidArgumentException $e){
+			self::$message = 'Enter numeric value';
+		}
 		return self::$result;
 	}
 
@@ -71,31 +62,55 @@ class TemperatureView {
    		 }
 	}
 
-	private function setFromConvertValue(){
+	public function setFromConvertValue(){
 
 		if(isset($_POST['units'])){
 			$this->selectedFrom = $_POST['units'];
 		}
 	}
 
-	private function getFromConvertValue(){
+	public function getFromConvertValue(){
 
 		if(isset($_POST['units'])){
 			return $_POST['units'];
 		}
 	}
 
-	private function setToConvertValue(){
+	public function setToConvertValue(){
 		if(isset($_POST['toconvertto'])){
 			$this->selectedTo = $_POST['toconvertto'];
-		}
-			
+		}	
 	}
 
-	private function getToConvertValue(){
+	public function getToConvertValue(){
 		if(isset($_POST['toconvertto'])){
 			return $_POST['toconvertto'];
 		}
 	}
+
+	public function getValue(){
+		return self::$value;
+	}
+
+	public function getSelectedFrom(){
+		return $this->selectedFrom;
+	}
+
+	public function getSelectedTo(){
+		return $this->selectedTo;
+	}
+
+	public function getConvert(){
+		return self::$convert;
+	}
+
+	public function getMessageId(){
+		return self::$messageId;
+	}
+
+	public function getMessage(){
+		return self::$message;
+	}
+
 
 }

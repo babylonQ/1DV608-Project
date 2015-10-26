@@ -3,11 +3,11 @@
 class MasterController{
 
 	private $nv;
-
+ 
 	public function __construct() {
 			
 			$this->nv = new NavigationView();
-			
+ 
 		}
 
 	public function start(){
@@ -18,7 +18,7 @@ class MasterController{
       		return new LengthView();
       }
       if ($this->nv->currencyLinkPressed()){
-     		return new CurrencyView();
+     		  return new CurrencyView();
       }
      if ($this->nv->temperatureLinkPressed()){
       		return new TemperatureView();
@@ -34,6 +34,9 @@ class MasterController{
       }
      if($this->nv->volumeLinkPressed()){
           return new VolumeView();
+     }
+     if($this->nv->timeLinkPressed()){
+          return new TimeView();
      }
      else return new HomeView();
 	}

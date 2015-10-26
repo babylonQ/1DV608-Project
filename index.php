@@ -15,12 +15,20 @@ require_once('view/CurrencyView.php');
 require_once('view/CaseView.php');
 require_once('view/SpeedView.php');
 require_once('view/VolumeView.php');
+require_once('view/TimeView.php');
+require_once('model/WeightModel.php');
+require_once('model/AreaModel.php');
+require_once('model/CurrencyModel.php');
+require_once('model/LengthModel.php');
+require_once('model/SpeedModel.php');
+require_once('model/TemperatureModel.php');
+require_once('model/VolumeModel.php');
+require_once('model/TimeModel.php');
 
 //MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-$v = new HomeView();
 $lv = new LayoutView();
 $dtv = new DateTimeView();
 $nv = new NavigationView();

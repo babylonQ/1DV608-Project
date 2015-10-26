@@ -9,17 +9,19 @@ class CaseView{
 	private static $value = 'CaseView::Value';
 	private static $result = '';
 
+	public function header() {
+
+		return 'Case Converter';
+	}
+
 	public function response() {
 
-		return '<center>' . "<div style='width:700px;height:100px;padding:10px;border:10px solid yellowgreen;'>" . '
+		return '<center>' . "<div style='width:600px;height:100px;padding:10px;border:10px solid yellowgreen;'>" . '
 				<form method="post" > 
 					
 					<label for="' . self::$value . '">Enter text :</label><br />
 					<input type="text" id="' . self::$value . '" name="' . self::$value . '" value="' . $this->setOrGetValue($this->setValue(), $this->setConvertPressed()) . '" style="width: 600px; height: 20px; cols="70" rows="50"" />
-					
-					
 					<br /><br />
-					
 					<input type="submit" name="' . self::$convertToLower . '" value="All lowercase" />
 					<input type="submit" name="' . self::$convertToUpper . '" value="All uppercase" />
 					<input type="submit" name="' . self::$convertToCapitalized . '" value="Capitalized Case" />

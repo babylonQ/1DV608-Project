@@ -1,24 +1,23 @@
 <?php
 
-class LengthView {
+class TimeView {
 
-	private static $convert = 'LengthView::Convert';
-	private static $value = 'LengthView::Value';
-	private static $result = '';
-	private static $message = '';
-	private static $messageId = 'LengthView::Message';
+	private static $convert = 'TimeView::Convert';
+	private static $value = 'TimeView::Value';
 	private $selectedFrom = '';
 	private $selectedTo = '';
-	private $unitModel;
-
+	private static $result = '';
+	private static $messageId = 'TimeView::Message';
+	private static $message = '';
+	
 	public function __construct(){
 
-		$this->unitModel = new LengthModel();
+		$this->unitModel = new TimeModel();
 	}
 
 	public function header() {
 
-		return 'Length Converter';
+		return 'Time Converter';
 	}
 
 	public function getInfo(){
@@ -30,7 +29,6 @@ class LengthView {
 	public function getUnits($select){
 		$options='';
 		foreach($this->unitModel->getUnits() as $key => $value){
-
 			if($select == $key){
 				$options .= '<option value="'.$key.'" selected>'.$key.'</option>';
 			}
@@ -50,13 +48,17 @@ class LengthView {
 		return self::$result;
 	}
 
-  	
+  	public function isConvertPressed(){
+		return isset($_POST[self::$convert]);
+	}
+
 	public function setValue(){
 		if (isset($_POST[self::$value]))
-      		return ($_POST[self::$value]);
+      	return ($_POST[self::$value]);
 	}
 
 	public function setFromConvertValue(){
+
 		if(isset($_POST['units']))
 			$this->selectedFrom = $_POST['units'];
 	}
@@ -68,10 +70,10 @@ class LengthView {
 
 	public function setToConvertValue(){
 		if(isset($_POST['toconvertto']))
-			$this->selectedTo = $_POST['toconvertto'];
+			$this->selectedTo = $_POST['toconvertto'];	
 	}
 
-	public function getToConvertValue(){
+	private function getToConvertValue(){
 		if(isset($_POST['toconvertto']))
 			return $_POST['toconvertto'];
 	}
