@@ -1,7 +1,13 @@
 <?php
+/**
+* Controller class that decides on wanted convert option
+* @author Mirza Durakovic
+*/
+class Controller{
 
-class MasterController{
-
+  /**
+  * @var NavigationView class object
+  */
 	private $nv;
  
 	public function __construct() {
@@ -10,6 +16,11 @@ class MasterController{
  
 		}
 
+  /**
+  * The method checks what link is pressed
+  * and based on that returns the wanted View
+  * @return wanted view
+  */
 	public function start(){
 		  if ($this->nv->areaLinkPressed()){
       		return new AreaView();
@@ -37,6 +48,12 @@ class MasterController{
      }
      if($this->nv->timeLinkPressed()){
           return new TimeView();
+     }
+     if($this->nv->angleLinkPressed()){
+          return new AngleView();
+     }
+     if($this->nv->bytesLinkPressed()){
+          return new BytesView();
      }
      else return new HomeView();
 	}

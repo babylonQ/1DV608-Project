@@ -1,46 +1,53 @@
 <?php
-
+/**
+* View class for Case conversion
+* @author Mirza Durakovic
+*/
 class CaseView{
 	
+	/**
+	 * These names are used in $_POST
+	 * @var string
+	 */
 	private static $convertToLower = 'CaseView::ConvertToLower';
 	private static $convertToUpper = 'CaseView::ConvertToUpper';
 	private static $convertToCapitalized = 'CaseView::ConvertToCapitalized';
 	private static $convertToSentance = 'CaseView::ConvertToSentance';
 	private static $value = 'CaseView::Value';
 	private static $result = '';
+	
+	/**
+  	* @var AreaModel class object
+  	*/
+	private $caseModel;
 
+	public function __construct(){
+		$this->caseModel = new CaseModel();
+	}
+
+	/**
+	* Method that returns header
+	* @return string
+	*/
 	public function header() {
-
 		return 'Case Converter';
 	}
 
-	public function response() {
-
-		return '<center>' . "<div style='width:600px;height:100px;padding:10px;border:10px solid yellowgreen;'>" . '
-				<form method="post" > 
-					
-					<label for="' . self::$value . '">Enter text :</label><br />
-					<input type="text" id="' . self::$value . '" name="' . self::$value . '" value="' . $this->setOrGetValue($this->setValue(), $this->setConvertPressed()) . '" style="width: 600px; height: 20px; cols="70" rows="50"" />
-					<br /><br />
-					<input type="submit" name="' . self::$convertToLower . '" value="All lowercase" />
-					<input type="submit" name="' . self::$convertToUpper . '" value="All uppercase" />
-					<input type="submit" name="' . self::$convertToCapitalized . '" value="Capitalized Case" />
-					<input type="submit" name="' . self::$convertToSentance . '" value="Sentance Case" />
-					
-			</form></div></center>
-
-			
-		';
-	}
-
-
-	private function setOrGetValue($setValue, $chosenConvertPressed){
+	/**
+	* Method that checks is something entered in the text field.
+	* In case it is, return the result which is processed string
+	* @param string $setValue
+	* @param string $chosenConvertPressed
+	* @return string 
+	*/
+	public function setOrGetValue($setValue, $chosenConvertPressed){
 		if($setValue){
-			return $this->result($setValue, $chosenConvertPressed);
+			return $this->caseModel->result($setValue, $chosenConvertPressed);
 		}
-		else
-			return $setValue;
+		else return $setValue;
 	}
+
+	//setter and getter methods
 
   	public function setConvertPressed(){
   		if(isset($_POST[self::$convertToLower]))
@@ -55,43 +62,27 @@ class CaseView{
 	}
 
 	public function setValue(){
-		if (isset($_POST[self::$value])) {
+		if (isset($_POST[self::$value]))
       		return ($_POST[self::$value]);
-   		 }
 	}
 
-	/**
-	* Calculates different combinations of chosen units
-	* @param Integer $enteredValue
-	* @param String $fromConvet
-	* @param String $toConvert
-	* @return Integer 
-	*/
-	private function result($enteredValue, $chosenConvertPressed){
-		$val = '';
-		switch($chosenConvertPressed){
-
-			case "All lowercase":
-			$val = strtolower($enteredValue);
-			break;
-			case "All uppercase":
-			$val = strtoupper($enteredValue);
-			break;
-			case "Capitalized Case":
-			$val = ucwords(strtolower($enteredValue));
-			break;
-			case "Sentance Case":
-			$val = $this->sentenceUpper($enteredValue);
-			break;
-		}
-		return $val;
+	public function getValue(){
+		return self::$value;
 	}
 
-	private function sentenceUpper($string){
-		$string = ucfirst(strtolower($string));
-   		$string = preg_replace_callback('/[.!?].*?\w/', create_function('$matches', 'return strtoupper($matches[0]);'),$string);
- 		return $string;
+	public function convertToLower(){
+		return self::$convertToLower;
 	}
 
+	public function convertToUpper(){
+		return self::$convertToUpper;
+	}
 
+	public function convertToCapitalized(){
+		return self::$convertToCapitalized;
+	}
+
+	public function convertToSentance(){
+		return self::$convertToSentance;
+	}
 }

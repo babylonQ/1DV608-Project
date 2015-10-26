@@ -1,19 +1,19 @@
 <?php
 /**
-* View class for Weight conversion
+* View class for Angle conversion
 * @author Mirza Durakovic
 */
-class WeightView {
+class BytesView {
 
 	/**
 	* These names are used in $_POST
 	* @var string
 	*/
-	private static $convert = 'WeightView::Convert';
-	private static $value = 'WeightView::Value';
+	private static $convert = 'BytesView::Convert';
+	private static $value = 'BytesView::Value';
 	private static $selectedFrom = '';
 	private static $selectedTo = '';
-	private static $messageId = 'WeightView::Message';
+	private static $messageId = 'BytesView::Message';
 	private static $result = null;
 	
 	/**
@@ -23,13 +23,13 @@ class WeightView {
 	private static $message = '';
 
 	/**
-  	* @var VolumeModel class object
+  	* @var AngleModel class object
   	*/
   	private $unitModel;
 	
 	public function __construct(){
 
-		$this->unitModel = new WeightModel();
+		$this->unitModel = new BytesModel();
 	}
 
 	/**
@@ -37,7 +37,7 @@ class WeightView {
 	* @return string
 	*/
 	public function header() {
-		return 'Weight Converter';
+		return 'Bytes Converter';
 	}
 
 	/**

@@ -1,7 +1,16 @@
 <?php
-
+/**
+* Model class for Length units
+* @author Mirza Durakovic
+*/
 class LengthModel extends UnitModel{
 	
+	/**
+	* List of different convert units and
+	* their relation to the base unit which
+	* has a value of 1
+	* @var array
+	*/
 	private $lengthUnits = array(
 		"milimeters" => 1000, 
 		"centimeters" => 100, 
@@ -13,6 +22,10 @@ class LengthModel extends UnitModel{
 		"miles" => 0.000621371
 		);
 
+	/**
+	* Constructor that passes these specific units
+	* to the setUnits method in the UnitModel class
+	*/
 	public function __construct(){
 
 		parent::setUnits($this->lengthUnits);

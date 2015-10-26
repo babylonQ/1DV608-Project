@@ -1,7 +1,16 @@
 <?php
-
+/**
+* Model class for Volume units
+* @author Mirza Durakovic
+*/
 class VolumeModel extends UnitModel{
 	
+	/**
+	* List of different convert units and
+	* their relation to the base unit which
+	* has a value of 1
+	* @var array
+	*/
 	private $volumeUnits = array(
 		"mililiter" => 1000, 
 		"centiliter" => 100, 
@@ -14,8 +23,10 @@ class VolumeModel extends UnitModel{
 		"quart" => 0.87987700
 		);
 
-
-
+	/**
+	* Constructor that passes these specific units
+	* to the setUnits method in the UnitModel class
+	*/
 	public function __construct(){
 
 		parent::setUnits($this->volumeUnits);

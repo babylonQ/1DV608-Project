@@ -1,9 +1,9 @@
 <?php
 /**
-* Model class for Temperature units
+* Model class for Angle units
 * @author Mirza Durakovic
 */
-class TemperatureModel extends UnitModel{
+class AngleModel extends UnitModel{
 	
 	/**
 	* List of different convert units and
@@ -11,12 +11,11 @@ class TemperatureModel extends UnitModel{
 	* has a value of 1
 	* @var array
 	*/
-	private $temperatureUnits = array(
-		"Celsius" => 1, 
-		"Farenheit" => 33.8, 
-		"Kelvin" => 274.15, 
-		"Rankine" => 493.47, 
-		"Réaumure" => 0.7999999999999987
+	private $angleUnits = array(
+		"degree" => 1, 
+		"radian" => 0.0174533, 
+		"gradian" => 1.111111606261876, 
+		"turn" => 0.00278	
 		);
 
 	/**
@@ -25,7 +24,7 @@ class TemperatureModel extends UnitModel{
 	*/
 	public function __construct(){
 
-		parent::setUnits($this->temperatureUnits);
+		parent::setUnits($this->angleUnits);
 	}
 
 }
