@@ -107,7 +107,7 @@ class VolumeView {
 
 	public function setToConvertValue(){
 		if(isset($_POST['toconvertto']))
-			$this->selectedTo = $_POST['toconvertto'];	
+			self::$selectedTo = $_POST['toconvertto'];	
 	}
 
 	public function getToConvertValue(){
