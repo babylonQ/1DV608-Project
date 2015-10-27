@@ -30,7 +30,6 @@ require_once('model/CaseModel.php');
 require_once('model/AngleModel.php');
 require_once('model/BytesModel.php');
 
-//MAKE SURE ERRORS ARE SHOWN... MIGHT WANT TO TURN THIS OFF ON A PUBLIC SERVER
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 

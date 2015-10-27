@@ -61,11 +61,11 @@ class TemperatureView {
 	public function getUnits($select){
 		$options='';
 		foreach($this->unitModel->getUnits() as $key => $value){
-			if($select == $key){
-				$options .= '<option value="'.$key.'" selected>'.$key.'</option>';
+			if($select == $value){
+				$options .= '<option value="'.$value.'" selected>'.$value.'</option>';
 			}
 			else{
-				$options .= '<option value="'.$key.'">'.$key.'</option>';
+				$options .= '<option value="'.$value.'">'.$value.'</option>';
 			}		
 		}
 		return $options;
@@ -79,7 +79,7 @@ class TemperatureView {
 	*/
 	public function getResult(){
 		try{
-			self::$result = $this->unitModel->result($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getUnits());
+			self::$result = $this->unitModel->resultTemp($this->setValue(), $this->getFromConvertValue(), $this->getToConvertValue(), $this->unitModel->getUnits());
 		}catch(InvalidArgumentException $e){
 			self::$message = 'Enter numeric value';
 		}
