@@ -1,19 +1,19 @@
 <?php
 /**
-* View class for Weight conversion
+* View class for Mass conversion
 * @author Mirza Durakovic
 */
-class WeightView {
+class MassView {
 
 	/**
 	* These names are used in $_POST
 	* @var string
 	*/
-	private static $convert = 'WeightView::Convert';
-	private static $value = 'WeightView::Value';
+	private static $convert = 'MassView::Convert';
+	private static $value = 'MassView::Value';
 	private static $selectedFrom = '';
 	private static $selectedTo = '';
-	private static $messageId = 'WeightView::Message';
+	private static $messageId = 'MassView::Message';
 	private static $result = null;
 	
 	/**
@@ -23,13 +23,13 @@ class WeightView {
 	private static $message = '';
 
 	/**
-  	* @var VolumeModel class object
+  	* @var MassModel class object
   	*/
   	private $unitModel;
 	
 	public function __construct(){
 
-		$this->unitModel = new WeightModel();
+		$this->unitModel = new MassModel();
 	}
 
 	/**
@@ -37,7 +37,7 @@ class WeightView {
 	* @return string
 	*/
 	public function header() {
-		return 'Weight Converter';
+		return 'Mass Converter';
 	}
 
 	/**
@@ -45,9 +45,12 @@ class WeightView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      <hr></div></center>';
+		return "<div style='width:600px;height:90px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		Mass is a dimensionless quantity representing the amount of matter in a particle or object. Mass is measured by determining the extent to which a particle or object resists a change in its direction or speed when a force is applied.
+      		In short, mass is how heavy something is without gravity. This means the mass of an object is the same on earth and in space.
+      		<br/><b>Metric system</b> units are: <b>grams</b>, <b>kilograms</b>, <b>tonne</b>.
+      		<br/><b>Imperial system</b> units are: <b>ounce</b>, <b>pound</b>, <b>stone</b>. 
+      		<hr></div></center>";
 	}
 
 	/**

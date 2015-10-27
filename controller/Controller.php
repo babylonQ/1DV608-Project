@@ -34,8 +34,8 @@ class Controller{
      if ($this->nv->temperatureLinkPressed()){
       		return new TemperatureView();
       }
-     if ($this->nv->weightLinkPressed()){
-      		return new WeightView();
+     if ($this->nv->massLinkPressed()){
+      		return new MassView();
       }
      if ($this->nv->speedLinkPressed()){
           return new SpeedView();

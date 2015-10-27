@@ -45,9 +45,11 @@ class AreaView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      		Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      		<hr></div></center>';
+		return "<div style='width:600px;height:70px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		Area is the quantity that expresses the extent of a two-dimensional figure or shape, or planar lamina, in the plane. Surface area is its analog on the two-dimensional surface of a three-dimensional object.
+      		<br/><b>Metric system</b> units are: <b>square meter</b>, <b>square kilometers</b>, <b>hecktar</b>.
+      		<br/><b>Imperial system</b> units are: <b>square inch</b>, <b>square foot</b>, <b>square yard</b>, <b>square mile</b>, <b>acre</b>. 
+      		<hr></div></center>";
 	}
 
 	/**

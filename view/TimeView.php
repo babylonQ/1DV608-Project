@@ -45,9 +45,10 @@ class TimeView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      <hr></div></center>';
+		return "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		Time is a measure in which events can be ordered from the past through the present into the future, and also the measure of durations of events and the intervals between them.
+      		Time base unit is <b>second</b>. 
+      		<hr></div></center>";
 	}
 
 	/**

@@ -45,9 +45,13 @@ class SpeedView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      	Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      	<hr></div></center>';
+		return "<div style='width:600px;height:70px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		The speed of an object is the magnitude of its velocity (the rate of change of its position); it is thus a scalar quantity.
+      		Like velocity, speed has the dimensions of a length divided by a time
+      		<br/><b>Metric system</b> units are: <b>meters/second</b>, <b>kilometers/hour</b>.
+      		<br/><b>Imperial system</b> units are: <b>feet/second</b>, <b>miles/hour</b>, <b>stone</b>. 
+      		<br/><b>Non-SI</b> units are: <b>knots</b>
+      		<hr></div></center>";
 	}
 	
 	/**

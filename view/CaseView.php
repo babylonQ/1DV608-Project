@@ -33,6 +33,10 @@ class CaseView{
 		return 'Case Converter';
 	}
 
+	public function getInfo(){
+		return "";
+	}
+
 	/**
 	* Method that checks is something entered in the text field.
 	* In case it is, return the result which is processed string

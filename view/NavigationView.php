@@ -11,7 +11,7 @@ class NavigationView {
    */
 	private static $areaLink = "area";
 	private static $lengthLink = "length";
-	private static $weightLink = "weight";
+	private static $massLink = "mass";
 	private static $temperatureLink = "temperature";
 	private static $currencyLink = "currency";
 	private static $volumeLink = "volume";
@@ -56,8 +56,8 @@ class NavigationView {
       return isset($_GET[self::$temperatureLink]);
     }
 
-  public function weightLinkPressed() { 
-      return isset($_GET[self::$weightLink]);
+  public function massLinkPressed() { 
+      return isset($_GET[self::$massLink]);
     }
 
   public function speedLinkPressed() { 
@@ -92,7 +92,7 @@ class NavigationView {
       if(
         isset($_GET[self::$lengthLink]) || 
         isset($_GET[self::$areaLink])|| 
-        isset($_GET[self::$weightLink])|| 
+        isset($_GET[self::$massLink])|| 
         isset($_GET[self::$temperatureLink])|| 
         isset($_GET[self::$currencyLink])|| 
         isset($_GET[self::$volumeLink])||
@@ -115,7 +115,7 @@ class NavigationView {
       return "<center><div align= 'center' style='width:200px;height:380px;padding:10px;border:10px solid yellowgreen;'>
       		  
       		  <a href='?" . self::$lengthLink . "'>Length</a><br /><br />
-      		  <a href='?" . self::$weightLink . "'>Weight</a><br /><br />
+      		  <a href='?" . self::$massLink . "'>Mass</a><br /><br />
             <a href='?" . self::$speedLink . "'>Speed</a><br /><br />
       		  <a href='?" . self::$temperatureLink . "'>Temperature</a><br /><br />
             <a href='?" . self::$areaLink . "'>Area</a><br /><br />
@@ -133,6 +133,6 @@ class NavigationView {
   * @return string HTML
   */
  	 public function renderBackLink() {
-      return "<center><a href='?" . self::$backLink . "'>Home</a></center><br />";
+      return "<center><a href='?" . self::$backLink . "'>back</a></center><br />";
  	 }
 }

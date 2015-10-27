@@ -45,9 +45,10 @@ class BytesView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      <hr></div></center>';
+		return "<div style='width:600px;height:50px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		The byte is a unit of digital information that most commonly consists of eight bits. Historically, the byte was the number of bits used to encode a single character of text in a computer
+      		and for this reason it is the smallest addressable unit of memory in many computer architectures.
+      		<hr></div></center>";
 	}
 
 	/**

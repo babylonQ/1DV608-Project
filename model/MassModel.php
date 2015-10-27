@@ -1,9 +1,9 @@
 <?php
 /**
-* Model class for Volume units
+* Model class for Mass units
 * @author Mirza Durakovic
 */
-class WeightModel extends UnitModel{
+class MassModel extends UnitModel{
 	
 	/**
 	* List of different convert units and
@@ -11,7 +11,7 @@ class WeightModel extends UnitModel{
 	* has a value of 1
 	* @var array
 	*/
-	private $weightUnits = array(
+	private $massUnits = array(
 		"Grams" => 1, 
 		"Kilograms" => 0.001, 
 		"Tonne" => 0.000001, 
@@ -26,7 +26,7 @@ class WeightModel extends UnitModel{
 	*/
 	public function __construct(){
 
-		parent::setUnits($this->weightUnits);
+		parent::setUnits($this->massUnits);
 	}
 
 }

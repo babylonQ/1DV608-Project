@@ -45,9 +45,13 @@ class LengthView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-     		Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      		<hr></div></center>';
+		return "<div style='width:600px;height:130px;padding:10px;border:0px solid yellowgreen;'><div align= justify>Length is the measurement of distance. It is used to count how far or how long something is from each other. 
+     		Historically, units of length may have been derived from the lengths of human body parts, the distance travelled in a number of paces, the distance between landmarks or places on the Earth, or arbitrarily on the length of some fixed object. 
+     		Length can be measured using various measurement systems - Imperial system, Metric system and non International System of Units(Non SI Units).
+      		<br/><b>Metric system</b> units are: <b>milimeters</b>, <b>centimeters</b>, <b>meters</b>, <b>kilometers</b>.
+      		<br/><b>Imperial system</b> units are: <b>inches</b>, <b>feet</b>, <b>yards</b>, <b>miles</b>.
+      		</div>
+      		<hr>";
 	}
 
 	/**

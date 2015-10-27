@@ -45,9 +45,12 @@ class VolumeView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      	Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      	<hr></div></center>';
+		return "<div style='width:600px;height:110px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		Volume is the quantity of three-dimensional space enclosed by some closed boundary, for example, the space that a substance (solid, liquid, gas, or plasma) or shape occupies or contains. 
+      		The volume of a container is generally understood to be the capacity of the container, i. e. the amount of fluid (gas or liquid) that the container could hold, rather than the amount of space the container itself displaces.
+      		<br/><b>Metric system</b> units are: <b>mililiter</b>, <b>centiliter</b>, <b>kiloliter</b>, <b>liter</b>.
+      		<br/><b>Imperial system</b> units are: <b>fluid ounce</b>, <b>gallon</b>, <b>pint</b>, <b>quart</b>. 
+      		<hr></div></center>";
 	}
 
 	/**
@@ -121,7 +124,7 @@ class VolumeView {
 	}
 
 	public function getSelectedTo(){
-		return $this->selectedTo;
+		return self::$selectedTo;
 	}
 
 	public function getConvert(){

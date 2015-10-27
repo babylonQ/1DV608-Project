@@ -41,9 +41,10 @@ class CurrencyView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      <hr></div></center>';
+		return "<div style='width:600px;height:50px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		A currency in the most specific use of the word refers to money in any form when in actual use or circulation as a medium of exchange, especially circulating banknotes and coins. 
+      		A more general definition is that a currency is a system of money (monetary units) in common use, especially in a nation.
+      		<hr></div></center>";
 	}
 
 	/**

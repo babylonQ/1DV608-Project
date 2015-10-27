@@ -45,9 +45,11 @@ class AngleView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      <hr></div></center>';
+		return "<div style='width:600px;height:50px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		An angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle.
+      		Angle is also used to designate the measure of an angle or of a rotation. 
+      		<br/>Most common units of measurment are: <b>degree</b>, <b>radian</b>, <b>gradian</b>, <b>turn</b>.
+      		<hr></div></center>";
 	}
 
 	/**

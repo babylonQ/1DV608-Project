@@ -27,6 +27,7 @@ class LayoutView {
           <div class="container">
               ' . $this->response($chosenOption) . '   
           </div>
+          <center> '.$chosenOption->getInfo().'  </center>       
           ' . $dtv->show() . '
          </body>
       </html>
@@ -64,7 +65,6 @@ class LayoutView {
           <input type="submit" name="' . $chosenOption->getConvert() . '" value="Convert" />
           <p id="' . $chosenOption->getMessageId() . '">' . $chosenOption->getMessage() . '</p>
       </form></div></center>
-      '. $chosenOption->getInfo() .'
     ';
   }
 

@@ -45,9 +45,10 @@ class TemperatureView {
 	* @return string HTML
 	*/
 	public function getInfo(){
-		return '<center>' . "<div style='width:600px;height:40px;padding:10px;border:0px solid yellowgreen;'>" . '
-      	Length is the measurement of distance. It is used to count how far or how long something is from each other. Length can be measured using various measurement systems - Imperial system , Metric system and non International System of Units(Non SI Units).
-      	<hr></div></center>';
+		return "<div style='width:600px;height:70px;padding:10px;border:0px solid yellowgreen;'><div align= justify>
+      		A temperature is an objective comparative measure of hot or cold. It is measured by a thermometer, which may work through the bulk behavior of a thermometric material, detection of thermal radiation, or particle kinetic energy. 
+      		Several scales and units exist for measuring temperature, the most common being <b>Celsius</b> (denoted <b>°C</b>; formerly called centigrade), <b>Fahrenheit</b> (denoted <b>°F</b>), and, especially in science, <b>Kelvin</b> (denoted <b>K</b>).
+      		<hr></div></center>";
 	}
 
 	/**
